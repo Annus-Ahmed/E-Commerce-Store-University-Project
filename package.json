@@ -1,0 +1,28 @@
+{
+  "name": "pre-owned-marketplace",
+  "version": "1.0.0",
+  "description": "A marketplace application for buying and selling pre-owned items",
+  "main": "setup.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "marketplace",
+    "ecommerce",
+    "mern"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "concurrently": "^7.6.0",
+    "mongoose": "^8.14.1"
+  }
+}
