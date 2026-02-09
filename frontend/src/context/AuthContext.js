@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     // Set up axios defaults - Update the URL to match your backend server
-    axios.defaults.baseURL = 'http://localhost:5001';
+    axios.defaults.baseURL = 'https://e-commerce-store-university-project.onrender.com';
     axios.defaults.withCredentials = true; // Changed to true for CORS with credentials
     axios.defaults.headers.common['Content-Type'] = 'application/json';
 
