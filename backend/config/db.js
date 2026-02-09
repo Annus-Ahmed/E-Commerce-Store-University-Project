@@ -10,7 +10,7 @@ const connectDB = async () => {
         
         // First try to connect to a local MongoDB if available
         try {
-            let mongoURI = 'mongodb://localhost:27017/pre-owned-marketplace';
+            let mongoURI = 'mongodb+srv://preowned_db:JLSCsesiZ5HsUURh@preowned-cluster.j8zn6qm.mongodb.net/preowned-marketplace?retryWrites=true&w=majority&appName=preowned-cluster';
             console.log('Trying local MongoDB connection:', mongoURI);
             
             // Try local connection first with a short timeout
