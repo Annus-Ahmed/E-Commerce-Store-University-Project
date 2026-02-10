@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const mongoURI = 'mongodb+srv://preowned_db:JLSCsesiZ5HsUURh@preowned-cluster.j8zn6qm.mongodb.net/preowned-marketplace?retryWrites=true&w=majority&appName=preowned-cluster';
+        const mongoURI = 'mongodb+srv://preowned_db:9ApCpArP7e7lYhiy@preowned-cluster.j8zn6qm.mongodb.net/preowned-marketplace?retryWrites=true&w=majority&appName=preowned-cluster';
         
         await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
