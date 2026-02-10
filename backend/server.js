@@ -14,7 +14,7 @@ const app = express();
 
 // Configure CORS with specific options
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'http://127.0.0.1:3001'], // Frontend origins
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'http://127.0.0.1:3001', 'https://e-commerce-store-university-project-7ln9.onrender.com'], // Frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true
 }));
