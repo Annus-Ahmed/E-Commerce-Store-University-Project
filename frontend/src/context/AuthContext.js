@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     // Set up axios defaults - Update the URL to match your backend server
-    axios.defaults.baseURL = 'e-commerce-store-university-project-production.up.railway.app';
+    axios.defaults.baseURL = 'https://e-commerce-store-university-project.onrender.com';
     axios.defaults.withCredentials = true; // Changed to true for CORS with credentials
     axios.defaults.headers.common['Content-Type'] = 'application/json';
 
@@ -94,15 +94,17 @@ export const AuthProvider = ({ children }) => {
                         password
                     });
                     
-                    const { token, user } = adminResponse.data;
-                    user.role = 'admin';
-                    
-                    localStorage.setItem('token', token);
-                    localStorage.setItem('userRole', 'admin');
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                    setUser(user);
-                    setLoading(false);
-                    return user;
+                    if (adminResponse.data && adminResponse.data.token && adminResponse.data.user) {
+                        const { token, user } = adminResponse.data;
+                        user.role = 'admin';
+                        
+                        localStorage.setItem('token', token);
+                        localStorage.setItem('userRole', 'admin');
+                        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                        setUser(user);
+                        setLoading(false);
+                        return user;
+                    }
                 } catch (adminError) {
                     console.error('Admin login failed:', adminError);
                     // Continue with regular login if admin login fails
@@ -115,14 +117,14 @@ export const AuthProvider = ({ children }) => {
             });
             
             // Check if we got a valid response
-            if (!response.data || !response.data.token) {
+            if (!response.data || !response.data.token || !response.data.user) {
                 throw new Error('Invalid response from server');
             }
             
             const { token, user } = response.data;
             
             // Force admin role for admin email
-            if (email === 'admin@example.com') {
+            if (email === 'admin@example.com' && user) {
                 user.role = 'admin';
             }
             
